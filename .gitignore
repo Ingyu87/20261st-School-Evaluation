@@ -1,3 +1,7 @@
+# Sensitive survey source data (local only)
+*.csv
+json_output/
+
 # Dependencies
 school-survey-dashboard/node_modules/
 school-survey-dashboard/dist/

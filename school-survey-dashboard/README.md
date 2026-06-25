@@ -19,9 +19,17 @@ npm run preview      # http://localhost:4173
 
 또는 `dist` 폴더를 브라우저에서 직접 열기 (정적 파일 서버 권장).
 
+## 데이터 보안 (중요)
+
+**CSV 원본 및 `json_output/`은 Git에 올리지 않습니다.** 교내 설문 원본은 로컬에만 보관하세요.
+
+로컬 데이터 파이프라인:
+1. CSV → `../csv_to_json.py` → `../json_output/` (로컬)
+2. `npm run data:build` → `public/data/survey-data.json`
+
 ## 데이터 갱신
 
-1. 상위 폴더 `json_output/`에 CSV 추출 JSON 업데이트
+1. 로컬 `json_output/`에 추출 JSON 업데이트 (CSV는 저장소 밖 로컬 전용)
 2. `npm run data:build` 실행
 3. `npm run build` 또는 `npm run dev`
 
