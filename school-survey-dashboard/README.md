@@ -19,6 +19,13 @@ npm run preview      # http://localhost:4173
 
 또는 `dist` 폴더를 브라우저에서 직접 열기 (정적 파일 서버 권장).
 
+## GitHub Pages
+
+배포 URL: https://ingyu87.github.io/20261st-School-Evaluation/
+
+`main` 브랜치 push 시 GitHub Actions가 자동 빌드·배포합니다.
+저장소 Settings → Pages → Source가 **GitHub Actions**인지 확인하세요.
+
 ## 데이터 보안 (중요)
 
 **CSV 원본 및 `json_output/`은 Git에 올리지 않습니다.** 교내 설문 원본은 로컬에만 보관하세요.
