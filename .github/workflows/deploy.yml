@@ -14,10 +14,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -41,11 +38,21 @@ jobs:
         env:
           VITE_BASE: /20261st-School-Evaluation/
 
+      - name: Verify build output
+        run: ls -la dist && test -f dist/index.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: school-survey-dashboard/dist
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
