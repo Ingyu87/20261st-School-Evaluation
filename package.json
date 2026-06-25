@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "vercel-build": "cd school-survey-dashboard && npm install && VITE_BASE=/ npm run build"
+  }
+}
