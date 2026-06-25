@@ -1,0 +1,27 @@
+{
+  "teacher": {
+    "T01": { "area": "Ⅰ-1", "areaGroup": "소통과 협력", "shortTitle": "학교 회의 문화 활성화" },
+    "T02": { "area": "Ⅱ-2", "areaGroup": "수업·평가 혁신", "shortTitle": "수업혁신 및 수업 나눔 문화" },
+    "T03": { "area": "Ⅲ-3", "areaGroup": "민주시민교육", "shortTitle": "공동체형 인성교육" },
+    "T04": { "area": "Ⅲ-3", "areaGroup": "민주시민교육", "shortTitle": "학교폭력·성폭력 예방교육" },
+    "T05": { "area": "Ⅲ-3", "areaGroup": "민주시민교육", "shortTitle": "학생자치 민주시민교육" },
+    "T06": { "area": "Ⅲ-1", "areaGroup": "맞춤형 책임교육", "shortTitle": "기초학력 책임지도" },
+    "T07": { "area": "Ⅱ-3", "areaGroup": "교원 전문성", "shortTitle": "교원학습공동체·장학 운영" },
+    "T08": { "area": "Ⅲ-2", "areaGroup": "인문·과학·예체능", "shortTitle": "학교예술교육" },
+    "T09": { "area": "Ⅲ-2", "areaGroup": "인문·과학·예체능", "shortTitle": "독서·토론·인문교육" },
+    "T10": { "area": "Ⅲ-2", "areaGroup": "인문·과학·예체능", "shortTitle": "체육교육 활성화" },
+    "T11": { "area": "Ⅲ-2", "areaGroup": "인문·과학·예체능", "shortTitle": "생태전환교육" },
+    "T12": { "area": "Ⅲ-3", "areaGroup": "민주시민교육", "shortTitle": "안전한 생활교육" },
+    "T13": { "area": "Ⅲ-2", "areaGroup": "인문·과학·예체능", "shortTitle": "진로탐색·진로교육" },
+    "T14": { "area": "Ⅲ-2", "areaGroup": "체험활동", "shortTitle": "교내 체험 중심 현장학습" },
+    "T15": { "area": "Ⅲ-2", "areaGroup": "인문·과학·예체능", "shortTitle": "디지털교육 활성화" },
+    "T16": { "area": "Ⅲ-2", "areaGroup": "인문·과학·예체능", "shortTitle": "과학의 달 행사" },
+    "T17": { "area": "Ⅲ-1", "areaGroup": "맞춤형 책임교육", "shortTitle": "맞춤형교실 프로그램" },
+    "T18": { "area": "Ⅲ-1", "areaGroup": "맞춤형 책임교육", "shortTitle": "방과후돌봄 프로그램" },
+    "T19": { "area": "기타", "areaGroup": "기타", "shortTitle": "교육활동 개선 의견" }
+  },
+  "staff": {
+    "S01": { "area": "Ⅰ-1", "areaGroup": "소통과 협력", "shortTitle": "교직원 의견 수렴·업무 효율성" },
+    "S02": { "area": "기타", "areaGroup": "기타", "shortTitle": "교육활동 개선 의견" }
+  }
+}

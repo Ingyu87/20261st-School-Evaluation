@@ -1,0 +1,28 @@
+.footer {
+  background: var(--color-surface-soft);
+  padding: 80px 0 0;
+  margin-top: var(--spacing-section);
+}
+
+.content {
+  padding-bottom: var(--spacing-xl);
+}
+
+.school {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0 0 var(--spacing-xs);
+}
+
+.meta {
+  font-size: 14px;
+  color: var(--color-muted);
+  margin: 0 0 var(--spacing-xs);
+}
+
+.note {
+  font-size: 13px;
+  color: var(--color-muted-soft);
+  margin: 0;
+}

@@ -1,0 +1,30 @@
+.wrapper {
+  margin-bottom: var(--spacing-xl);
+}
+
+.tabs {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.tab,
+.active {
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--color-muted);
+  transition: background 0.15s, color 0.15s;
+}
+
+.active {
+  background: var(--color-surface-card);
+  color: var(--color-ink);
+}
+
+.tab:hover {
+  color: var(--color-ink);
+}
