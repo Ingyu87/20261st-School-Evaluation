@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.com/vercel.json",
+  "installCommand": "cd school-survey-dashboard && npm install",
+  "buildCommand": "cd school-survey-dashboard && VITE_BASE=/ npm run build",
+  "outputDirectory": "school-survey-dashboard/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

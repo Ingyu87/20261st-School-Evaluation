@@ -24,7 +24,26 @@ npm run preview      # http://localhost:4173
 배포 URL: https://ingyu87.github.io/20261st-School-Evaluation/
 
 `main` 브랜치 push 시 GitHub Actions가 자동 빌드·배포합니다.
-저장소 Settings → Pages → Source가 **GitHub Actions**인지 확인하세요.
+
+## Vercel
+
+배포 URL 예: `https://20261st-school-evaluation.vercel.app`
+
+### Vercel 프로젝트 설정 (중요)
+
+**방법 A — 저장소 루트 연결 (권장)**  
+루트 `vercel.json`이 자동으로 빌드합니다. Vercel 대시보드에서 **Root Directory는 비워 두세요.**
+
+**방법 B — 하위 폴더 연결**  
+- Root Directory: `school-survey-dashboard`  
+- Output Directory: `dist`  
+- Build Command: `VITE_BASE=/ npm run build`
+
+### 404가 나올 때
+
+1. Vercel **Environment Variables**에 `VITE_BASE=/20261st-School-Evaluation/`가 있으면 **삭제** (GitHub Pages용)
+2. **Deployments → Redeploy** (Use existing Build Cache **끄기**)
+3. Root Directory와 Output Directory가 위 설정과 일치하는지 확인
 
 ## 데이터 보안 (중요)
 
