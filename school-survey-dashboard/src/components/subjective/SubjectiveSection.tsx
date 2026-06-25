@@ -8,11 +8,11 @@ interface SubjectiveSectionProps {
 }
 
 export function SubjectiveSection({ subjective }: SubjectiveSectionProps) {
-  const filteredCount = subjective.filteredResponses.length;
-  const showLowSample = filteredCount <= 5;
+  const meaningful = subjective.filteredResponses;
+  const showLowSample = meaningful.length <= 5;
 
   return (
-    <section id="subjective" className="section">
+    <section className="section">
       <div className="container">
         <p className="caption-uppercase">Subjective</p>
         <h2 className="section-title">서술형 주관식 분석</h2>
@@ -20,31 +20,32 @@ export function SubjectiveSection({ subjective }: SubjectiveSectionProps) {
         <div className={styles.ctaBand}>
           <div>
             <h3 className={styles.ctaTitle}>{subjective.shortTitle}</h3>
-            <p className={styles.ctaSub}>
-              유효 응답 {filteredCount}건 · 전체 {subjective.rawResponses.length}건
-            </p>
+            <p className={styles.ctaSub}>유효 응답 {meaningful.length}건</p>
           </div>
           <CtaIllustration />
         </div>
 
-        {showLowSample && (
-          <p className={styles.lowSample}>
-            응답 수가 적어 참고용으로 활용해 주세요.
-          </p>
+        {showLowSample && meaningful.length > 0 && (
+          <p className={styles.lowSample}>응답 수가 적어 참고용으로 활용해 주세요.</p>
         )}
 
-        <div className={styles.block}>
-          <h3 className={styles.blockTitle}>원본 데이터</h3>
-          <ul className={styles.rawList}>
-            {subjective.rawResponses.map((r) => (
-              <li key={r.index} className={styles.rawItem}>
-                <span className={styles.rawIndex}>#{r.index}</span>
-                {r.isFiltered && <span className={styles.filteredBadge}>무의미 응답</span>}
-                <p className={styles.rawText}>{r.text.trim() || "(빈 응답)"}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {meaningful.length > 0 && (
+          <div className={styles.block}>
+            <h3 className={styles.blockTitle}>응답 원문</h3>
+            <ul className={styles.rawList}>
+              {meaningful.map((r) => (
+                <li key={r.index} className={styles.rawItem}>
+                  <span className={styles.rawIndex}>#{r.index}</span>
+                  <p className={styles.rawText}>{r.text.trim()}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {meaningful.length === 0 && (
+          <p className={styles.empty}>유효한 서술형 응답이 없습니다.</p>
+        )}
 
         {subjective.summary.length > 0 && (
           <div className={styles.block}>

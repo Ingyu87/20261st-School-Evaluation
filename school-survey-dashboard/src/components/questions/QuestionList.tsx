@@ -8,7 +8,7 @@ interface QuestionListProps {
 
 export function QuestionList({ questions }: QuestionListProps) {
   return (
-    <section id="questions" className="section">
+    <section className="section">
       <div className="container">
         <p className="caption-uppercase">Questions</p>
         <h2 className="section-title">문항별 분석</h2>

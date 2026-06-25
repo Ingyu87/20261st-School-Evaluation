@@ -13,6 +13,7 @@ PARENT = ROOT.parent
 JSON_INPUT = PARENT / "json_output"
 OUT_DATA = ROOT / "public" / "data"
 META_PATH = SCRIPT_DIR / "question-meta.json"
+INTERPRETATIONS_PATH = SCRIPT_DIR / "interpretations.json"
 
 LIKERT_ORDER = ["매우 그렇다", "그렇다", "보통이다", "그렇지 않다", "전혀 그렇지 않다"]
 LIKERT_SCORE = {
@@ -239,6 +240,26 @@ def build_interpretations_template(teacher_tab: dict, staff_tab: dict) -> dict:
     }
 
 
+def load_interpretations(teacher_tab: dict, staff_tab: dict) -> dict:
+    if INTERPRETATIONS_PATH.exists():
+        with open(INTERPRETATIONS_PATH, encoding="utf-8") as f:
+            return json.load(f)
+    return build_interpretations_template(teacher_tab, staff_tab)
+
+
+def apply_interpretations(teacher_tab: dict, staff_tab: dict, interpretations: dict) -> None:
+    teacher_tab["subjective"]["summary"] = interpretations["teacher"]["subjective"]["summary"]
+    teacher_tab["subjective"]["interpretation"] = interpretations["teacher"]["subjective"]["interpretation"]
+    staff_tab["subjective"]["summary"] = interpretations["staff"]["subjective"]["summary"]
+    staff_tab["subjective"]["interpretation"] = interpretations["staff"]["subjective"]["interpretation"]
+    teacher_tab["overall"]["highlights"] = interpretations["teacher"]["overall"]
+    staff_tab["overall"]["highlights"] = interpretations["staff"]["overall"]
+    for q in teacher_tab["questions"]:
+        q["interpretation"] = interpretations["teacher"]["questions"][q["id"]]
+    for q in staff_tab["questions"]:
+        q["interpretation"] = interpretations["staff"]["questions"][q["id"]]
+
+
 def main():
     with open(META_PATH, encoding="utf-8") as f:
         meta = json.load(f)
@@ -262,21 +283,8 @@ def main():
         "S02",
     )
 
-    interpretations = build_interpretations_template(teacher_tab, staff_tab)
-
-    # Merge interpretations into subjective summary/interpretation
-    teacher_tab["subjective"]["summary"] = interpretations["teacher"]["subjective"]["summary"]
-    teacher_tab["subjective"]["interpretation"] = interpretations["teacher"]["subjective"]["interpretation"]
-    staff_tab["subjective"]["summary"] = interpretations["staff"]["subjective"]["summary"]
-    staff_tab["subjective"]["interpretation"] = interpretations["staff"]["subjective"]["interpretation"]
-
-    teacher_tab["overall"]["highlights"] = interpretations["teacher"]["overall"]
-    staff_tab["overall"]["highlights"] = interpretations["staff"]["overall"]
-
-    for q in teacher_tab["questions"]:
-        q["interpretation"] = interpretations["teacher"]["questions"][q["id"]]
-    for q in staff_tab["questions"]:
-        q["interpretation"] = interpretations["staff"]["questions"][q["id"]]
+    interpretations = load_interpretations(teacher_tab, staff_tab)
+    apply_interpretations(teacher_tab, staff_tab, interpretations)
 
     dataset = {
         "meta": {

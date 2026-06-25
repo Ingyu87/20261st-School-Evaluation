@@ -82,3 +82,5 @@ export interface SurveyDataset {
 }
 
 export type TabId = "teacher" | "staff";
+
+export type ViewId = "insights" | "questions" | "subjective" | "rawdata";

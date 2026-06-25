@@ -1,5 +1,5 @@
 .hero {
-  padding: var(--spacing-section) 0 var(--spacing-xxl);
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
 }
 
 .grid {
@@ -14,10 +14,10 @@
 }
 
 .title {
-  font-size: 56px;
-  line-height: 1.05;
-  letter-spacing: -2px;
-  margin: var(--spacing-md) 0 var(--spacing-lg);
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin: var(--spacing-sm) 0 var(--spacing-md);
 }
 
 .sub {

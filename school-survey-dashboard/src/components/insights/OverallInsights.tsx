@@ -38,7 +38,7 @@ export function OverallInsights({ overall, questions, responseCount }: OverallIn
   ];
 
   return (
-    <section id="insights" className="section">
+    <section className="section">
       <div className="container">
         <p className="caption-uppercase">Overview</p>
         <h2 className="section-title">전체 인사이트</h2>

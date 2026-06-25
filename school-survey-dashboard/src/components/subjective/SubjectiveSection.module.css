@@ -119,6 +119,14 @@
   color: var(--color-body-strong);
 }
 
+.empty {
+  padding: var(--spacing-xl);
+  text-align: center;
+  color: var(--color-muted);
+  background: var(--color-surface-card);
+  border-radius: var(--radius-lg);
+}
+
 @media (max-width: 768px) {
   .ctaBand {
     flex-direction: column;
